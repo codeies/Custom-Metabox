@@ -350,7 +350,7 @@ if (!class_exists('Ap_custom_Metabox')):
 
         function ap_input_select($arg, $value, $object)
         {
-
+           // print_r($arg);
             $options = $arg['input_option'];
             if (!array_key_exists('id', $arg)) {
                 $arg['id'] = $arg['name'];
@@ -487,11 +487,13 @@ if (!class_exists('Ap_custom_Metabox')):
                                 $input_repeat_args['description'] = $field_name['description'];
                                 $input_repeat_args['placeholder'] = $field_name['placeholder'];
                                 $input_repeat_args['id'] = $field_name['name'] . '[0]';
+                                $input_repeat_args['input_option'] = $field_name['input_option'];
                                 $input_callback = "ap_input_" . $input_repeat_args['type'];
                                 if (array_key_exists('value', $field_name)) {
                                     $input_repeat_args['value'] = $field_name['value'];
                                 }
-
+                               // print_r($input_repeat_args);
+                               // die();
                                 $input_repeat_args['class'] = (array_key_exists('class', $field_name)) ? $field_name['class'] : $field_name['name'];
 
                                 ?>
@@ -541,6 +543,7 @@ if (!class_exists('Ap_custom_Metabox')):
                                     $input_repeat_args['placeholder'] = $field_name['placeholder'];
                                     $input_repeat_args['id'] = $field_name['name'] . '[' . $repeat_inc . ']';
                                     $input_repeat_args['label'] = $field_name['label'];
+                                    $input_repeat_args['input_option'] = $field_name['input_option'];
                                     $input_callback = "ap_input_" . $input_repeat_args['type'];
                                     if (array_key_exists('value', $field_name)) {
                                         $input_repeat_args['value'] = $field_name['value'];
